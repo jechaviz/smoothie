@@ -61,7 +61,7 @@ class Closure extends BelongsToMany
         $this->readOnly();
     }
 
-    public function createMany(array $records, array $joinings = [])
+    public function createMany(iterable $records, array $joinings = [])
     {
         $this->readOnly();
     }

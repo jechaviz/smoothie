@@ -120,7 +120,9 @@ class WrapMultiManyTest extends TestCase
         }
         $synced = collect(array_merge($actual['updated'], $actual['attached']))
                 ->sortBy('role_id')->sortBy('user_id')->values();
-        return $this->assertArraySubset($synced, $expected);
+        foreach ($synced as $s) {
+            $this->assertContains($s, $expected);
+        }
     }
 
     public function test_attach_with_attributes()
